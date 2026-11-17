@@ -15,6 +15,14 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(title: const Text('Contact List'), centerTitle: true),
 
       body: Obx(() {
+        if (controller.contactList.isEmpty) {
+          return Center(
+            child: Text(
+              'No contacts available. \nPlease add some contacts.',
+              style: TextStyle(fontSize: 16, color: Colors.grey),
+            ),
+          );
+        }
         return ListView.builder(
           itemCount: controller.contactList.length,
 
